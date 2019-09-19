@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dynamicFormTemplate2": {
+    "dynamicFormTemplate": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dynamicFormTemplate2",
+            "outputPath": "dist/dynamicFormTemplate",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dynamicFormTemplate2:build"
+            "browserTarget": "dynamicFormTemplate:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dynamicFormTemplate2:build:production"
+              "browserTarget": "dynamicFormTemplate:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dynamicFormTemplate2:build"
+            "browserTarget": "dynamicFormTemplate:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dynamicFormTemplate2:serve"
+            "devServerTarget": "dynamicFormTemplate:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dynamicFormTemplate2:serve:production"
+              "devServerTarget": "dynamicFormTemplate:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "dynamicFormTemplate2"
+  "defaultProject": "dynamicFormTemplate"
 }
