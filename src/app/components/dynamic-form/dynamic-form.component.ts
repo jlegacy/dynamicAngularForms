@@ -18,12 +18,12 @@ import {
   styles: []
 })
 export class DynamicFormComponent implements OnInit {
-  @ViewChild("radioButton") radioButton: TemplateRef<any>;
-  @ViewChild("submitButton") submitButton: TemplateRef<any>;
-  @ViewChild("checkBox") checkBox: TemplateRef<any>;
-  @ViewChild("input") input: TemplateRef<any>;
-  @ViewChild("date") date: TemplateRef<any>;
-  @ViewChild("select") select: TemplateRef<any>;
+  @ViewChild("radioButton", {static:false}) radioButton: TemplateRef<any>;
+  @ViewChild("submitButton", {static:false}) submitButton: TemplateRef<any>;
+  @ViewChild("checkBox", {static:false}) checkBox: TemplateRef<any>;
+  @ViewChild("input", {static:false}) input: TemplateRef<any>;
+  @ViewChild("date", {static:false}) date: TemplateRef<any>;
+  @ViewChild("select", {static:false}) select: TemplateRef<any>;
 
   form: FormGroup;
   rows: any;

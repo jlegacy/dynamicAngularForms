@@ -14,7 +14,7 @@ import { GridOptions } from "ag-grid-community";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit, OnDestroy {
-  @ViewChild("dynamicForm") dynamicForm: DynamicFormComponent;
+  @ViewChild("dynamicForm", {static:true}) dynamicForm: DynamicFormComponent;
 
   getHttpClientService: any;
 
