@@ -1,0 +1,56 @@
+<form class="dynamic-form" [formGroup]="profileForm" (submit)="onSubmit($event)">
+  <ng-container *ngFor="let row of rows">
+    <ng-container *ngFor="let column of row.fields">
+      <ng-template *ngTemplateOutlet="this[column.name]; context:column">{{column.name}}</ng-template>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #radioButton let-context="context">
+    <div class="demo-full-width margin-top">
+      <label class="radio-label-padding">{{context.label}}</label>
+      <mat-radio-group [formControlName]="context.formControl">
+        <mat-radio-button *ngFor="let item of context.options" [value]="item">{{item}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </ng-template>
+
+  <ng-template #submitButton let-context="context">
+    <div class="demo-full-width margin-top">
+      <button type="submit" [disabled]="!profileForm.valid" mat-raised-button color="primary">{{context.label}}</button>
+    </div>
+  </ng-template>
+
+  <ng-template #checkBox let-context="context">
+    <div class="demo-full-width margin-top">
+      <mat-checkbox [formControlName]="context.formControl">{{context.label}}</mat-checkbox>
+    </div>
+  </ng-template>
+
+  <ng-template #input let-context="context">
+    <mat-form-field class="demo-full-width">
+      <input matInput [formControlName]="context.formControl" [placeholder]="context.placeholder" [type]="context.type">
+    </mat-form-field>
+  </ng-template>
+
+  <ng-template #date let-context="context">
+    <mat-form-field class="demo-full-width margin-top">
+      <input matInput [matDatepicker]="picker" [formControlName]="context.formControl" [placeholder]="context.label">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-hint></mat-hint>
+      <!--  <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+        <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
+      </ng-container> -->
+    </mat-form-field>
+  </ng-template>
+
+  <ng-template #select let-context="context">
+    <mat-form-field class="demo-full-width margin-top">
+      <mat-select [placeholder]="context.label"
+        [formControlName]="context.formControl" >
+        <mat-option *ngFor="let item of context.options" [value]="item">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-template>
+
+</form>

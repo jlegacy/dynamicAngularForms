@@ -1,0 +1,19 @@
+<div style="display:flex">
+  <div style="justify-content:flex-start">
+    <h1 style="margin-left:10px">Dynamically Created Form</h1>
+    <div class="form">
+      <div style="text-align:center">
+        <h1>
+          Registration Form
+        </h1>
+      </div>
+      <dynamic-form #dynamicForm></dynamic-form>
+    </div>
+  </div>
+  <div style="justify-content:flex-end; margin-left:10px;">
+    <h1>Dynamically Created Grid</h1>
+    <ag-grid-angular style="width: 500px; height: 500px;" class="ag-theme-balham" [rowData]="rowData"
+      [columnDefs]="columnDefs" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+</div>
